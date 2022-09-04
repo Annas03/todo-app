@@ -2,7 +2,6 @@ import React,{useEffect, useState} from 'react'
 import Task from "../task/Task.js"
 
 const TaskList = (prop) => {
-  // const tasks = [<Task topic='Create Portfolio'/>,<Task topic='offer 5 time Namaz'/>, <Task topic='Help Others'/>]
   const [task, Updatetask] = useState([])
   const [inputText, UpdateText] = useState('')
   function handleInput(e){
@@ -21,7 +20,7 @@ const TaskList = (prop) => {
       </div>
 
       <div className='mt-2 w-3/5 pt-0.5 mx-auto bg-forms text-gray-500'>  
-        {task.map((t) => {return <Task topic={t}/>})}
+        {task.length?task.map((t) => {return <Task topic={t}/>}):<h4 className='text-xs text-center'>Add task!</h4>}
         <div className='text-gray-500 text-xs flex justify-between mx-1'>
           <p>5 Items</p>
           <button>Clear Complete</button>
