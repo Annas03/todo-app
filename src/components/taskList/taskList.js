@@ -4,6 +4,7 @@ import Task from "../task/Task.js"
 const TaskList = (prop) => {
   const [task, Updatetask] = useState([])
   const [inputText, UpdateText] = useState('')
+
   function handleInput(e){
     UpdateText(e.target.value)
   }
@@ -12,6 +13,7 @@ const TaskList = (prop) => {
     Updatetask(prop.tasklist)
     UpdateText('')
   }
+
   return (
     <div>
       <div className='flex w-3/5 mx-auto text-xs py-1'>
@@ -22,11 +24,12 @@ const TaskList = (prop) => {
       <div className='mt-2 w-3/5 pt-0.5 mx-auto bg-forms text-gray-500'>  
         {task.length?task.map((t) => {return <Task topic={t}/>}):<h4 className='text-xs text-center'>Add task!</h4>}
         <div className='text-gray-500 text-xs flex justify-between mx-1'>
-          <p>5 Items</p>
+          <p><span>{task.length}</span> items</p>
           <button>Clear Complete</button>
         </div>
       </div>
     </div>
   )
 }
+
 export default TaskList
