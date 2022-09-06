@@ -1,26 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import check from '../task/Checkarrow.svg'
 
-const Task = ({topic, list}) => {
+const Task = ({topic, list, updateTask}) => {
    
   const [isCompleted, SetIsCompleted] = useState(false)
 
   function CompleteTask(){
     isCompleted ? SetIsCompleted(false) : SetIsCompleted(true)
-    // if(isCompleted){
-    //   for(let i=0; i < list.lenght ;i++){
-    //     if(list[i].value == key){
-    //       list[i].completed = true
-    //     }
-    //   }
-    // }
-    // else{
-    //   for(let i=0; i < list.lenght ;i++){
-    //     if(list[i].value == key){
-    //       list[i].completed = false
-    //     }
-    //   }
-    // }
+    // useEffect(updateTask([...list.slice(0, )]))
   }
 
   return (
