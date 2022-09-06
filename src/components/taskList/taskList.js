@@ -9,7 +9,7 @@ const TaskList = ({tasklist, SetTask}) => {
     UpdateText(e.target.value)
   }
   function UpdateList(){
-    SetTask([...tasklist,inputText])
+    SetTask([...tasklist,{value: inputText, completed:false}])
     UpdateText('')
     // if(inputText!==""){
     //   prop.tasklist.push({value: inputText, completed:false})
@@ -25,6 +25,9 @@ const TaskList = ({tasklist, SetTask}) => {
     // !ClearCompleteClicked && SetClearCompleteClicked(true)
     
   }
+  // useEffect(()=>{
+  //   tasklist.map((t) => {console.log(t.value)})
+  // },[tasklist])
 
   return (
     <div>
@@ -34,7 +37,7 @@ const TaskList = ({tasklist, SetTask}) => {
       </div>
 
       <div className='mt-2 w-3/5 pt-0.5 mx-auto bg-forms text-gray-500'>  
-        {tasklist.length ? tasklist.map(t => <Task key={t} topic={t}/>) : <h4 className='text-xs text-center'>Add task!</h4>}
+        {tasklist.length!==0 ? tasklist.map((t) => <Task key={t.value} topic={t.value} list={tasklist}/>) : <h4 className='text-xs text-center'>Add task!</h4>}
         <div className='text-gray-500 text-xs flex justify-between mx-1'>
           <p><span>{tasklist.length}</span> items</p>
           <button onClick={IsClearCompleteClicked}>Clear Complete</button>
