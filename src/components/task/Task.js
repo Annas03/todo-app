@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import check from '../task/Checkarrow.svg'
 
 const Task = (prop) => {
-
+   
   const [isCompleted, SetIsCompleted] = useState(false)
+
   function CompleteTask(){
     isCompleted ? SetIsCompleted(false) : SetIsCompleted(true)
+    prop.key = "Completed"
   }
 
   return (
