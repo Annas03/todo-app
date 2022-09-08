@@ -3,7 +3,6 @@ import Task from "../task/Task.js"
 
 const TaskList = ({tasklist, SetTasklist}) => {
   const [inputText, UpdateText] = useState('')
-  const [ClearCompleteClicked, SetClearCompleteClicked] = useState(false)
 
   function handleInput(e){
     UpdateText(e.target.value)
@@ -15,8 +14,7 @@ const TaskList = ({tasklist, SetTasklist}) => {
     }
   }
   function IsClearCompleteClicked(){
-    // !ClearCompleteClicked && SetClearCompleteClicked(true)
-    
+    SetTasklist(tasklist.filter((item) => !item.completed))
   }
   useEffect(() => {console.log(tasklist)}, [tasklist])
 
