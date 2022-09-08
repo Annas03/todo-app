@@ -7,8 +7,9 @@ const Task = ({topic, list, updateTask}) => {
 
   function CompleteTask(){
     isCompleted ? SetIsCompleted(false) : SetIsCompleted(true)
-    // useEffect(updateTask([...list.slice(0, )]))
   }
+  useEffect(() => {
+    updateTask(list.map((t) => t.value === topic ? {value: topic, completed:isCompleted}: t))}, [isCompleted])
 
   return (
     <div className='flex w-11/12 mx-auto border-b border-gray-700 my-1 py-0.5'>

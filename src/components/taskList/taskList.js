@@ -9,9 +9,10 @@ const TaskList = ({tasklist, SetTasklist}) => {
     UpdateText(e.target.value)
   }
   function UpdateTaskList(){
-    SetTasklist([...tasklist, {value: inputText, completed:false}])
-    UpdateText('')
-
+    if(inputText !== ''){
+      SetTasklist([...tasklist, {value: inputText, completed:false}])
+      UpdateText('')
+    }
   }
   function IsClearCompleteClicked(){
     // !ClearCompleteClicked && SetClearCompleteClicked(true)
